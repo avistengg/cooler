@@ -1,0 +1,46 @@
+
+
+body{
+	background:url(../assets/imgs/main-bg.png);
+}
+ion-app.md,
+.ion-page > ion-content{
+	background:none;
+}   
+
+
+[role="login-page"] .label-md-primary,
+[role="login-page"] .item-input .label-md-primary,
+[role="login-page"] .item-select .label-md-primary,
+[role="login-page"] .item-datetime .label-md-primary{
+	color:#000
+}
+[role="login-page"] ion-icon{
+	color:#ed3237;
+	margin-right:10px;
+}
+[role="login-page"]  .button{
+    border-radius: 4px;
+    height: 2.8em;
+    font-size: 1.6rem;
+    color: #fff;
+    margin: .4rem .2rem;
+    padding: 0 1em;
+	margin-bottom:20px;
+}
+[role="login-page"] .item-block:first-child{
+	border:none
+}
+[role="login-page"] .logo{
+	display: inline-block;
+	text-align: center;
+	background: #f1f2f4;
+	border-radius: 100%;
+	padding: 10px;
+	width: 160px;
+	height: 160px;
+	line-height: 250px;
+}
+[role="login-page"] .logo img{
+	width:100px;
+}

@@ -1,3 +1,65 @@
-page-home {
 
+
+body{
+	background:url(../assets/imgs/main-bg.png);
+}
+ion-app.md,
+.ion-page > ion-content{
+	background:none;
+}   
+
+
+ion-content.custom-home-page .card-md{
+	width:calc(100%)
+}
+
+.card-background-page .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2em;
+    width: 100%;
+    font-weight: 700;
+    color: #fff;
+}
+.card-background-page .card-subtitle {
+    font-size: 1em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+}
+.card-md{
+	position:relative
+}
+.custom-home-page .item-text-wrap{
+	border-radius:0
+}
+.custom-home-page .item-text-wrap .item{
+	background:#3e3e3e;
+	border-radius:0px;
+	box-shadow:none;
+	color:#fff !important
+}
+.custom-home-page .item-text-wrap .item h2{
+	color:#fff
+}
+.custom-home-page .item-text-wrap [cart-icon]{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 5px 10px;
+	background: #000;
+	color: #fff;
+	border-radius: 1px;
+}
+.custom-home-page .segment-md .segment-button{
+	background: #c9c7c7;
+	opacity:1;
+	color:#fff
+}
+.custom-home-page .segment-md .segment-button.activated, 
+.custom-home-page .segment-md .segment-button.segment-activated{
+	background:#fff;
+	color:#ed3237;
+	border-color:#ed3237
 }
