@@ -1,31 +1,36 @@
-<!--
-  Generated template for the ProductdetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 	<ion-header>
-			<ion-toolbar>
-				<button ion-button menuToggle>
-					<ion-icon name="menu"></ion-icon>
-				</button>
-				<ion-title>Product Details</ion-title>
-			</ion-toolbar>
-		</ion-header>
+			<ion-navbar>
+				<ion-title>{{ productdetails.product_name }}</ion-title>
+			</ion-navbar>
+	</ion-header>
 
 		<ion-content padding class="product-detail">
 			<ion-card no-margin>
-				<img src="assets/imgs/card-saopaolo.png">
-				<ion-fab right top>
-					<button ion-fab small>
-						<ion-icon name="pin"></ion-icon>
+			<p style="width:100%;text-align:center;"><img src="{{ productdetails.product_images[0].product_image }}"></p>
+				<ion-fab right top >
+					<button ion-fab small  [navPush]="productsPage" [navParams]=productdetails>
+							<ion-icon name="cart" ></ion-icon>							
 					</button>
 				</ion-fab>
 				<ion-item>
-					<h2>T-bone leberkas alcatra short ribs.</h2>
+					<h2 class="titilecolor">{{ productdetails.product_name }}</h2>
 				</ion-item>
 				<ion-card-content>
-					<p>Bacon ipsum dolor amet spare ribs shankle rump doner venison. Spare ribs pork loin strip steak, cow drumstick short loin frankfurter andouille tongue. Pork belly burgdoggen hamburger pancetta ham hock spare ribs shoulder picanha bresaola tenderloin. Shoulder hamburger brisket biltong cupim picanha beef landjaeger ham hock fatback. Pork cupim ham hock pork belly</p>
+					<strong class="paddingbt">Description</strong> 
+					<p><br>
+					 	{{ productdetails.product_desc }}
+					<span class="leftpadding"><br>
+					  - {{ productdetails.product_additional_details[0].product_addi_detail_1 }}<br>
+					  - {{ productdetails.product_additional_details[1].product_addi_detail_2 }}<br>
+					  - {{ productdetails.product_additional_details[2].product_addi_detail_3 }}<br>
+					  - {{ productdetails.product_additional_details[3].product_addi_detail_4 }}<br>
+					  - {{ productdetails.product_additional_details[4].product_addi_detail_5 }}<br>
+					</span>
+					<br><br>
+				Cooling coverage area: {{ productdetails.cooling_coverage_area }}<br>
+				Product Type: {{ productdetails.product_type }}<br>
+				Color: {{ productdetails.color }}
+
 				</ion-card-content>
 			</ion-card>
 		</ion-content>

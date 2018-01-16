@@ -1,13 +1,14 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
+  <ion-header style="background-color:red !important;padding:20px;">
+    <img src="assets/imgs/logon.png" style="height:80px !important">
+    
+      <ion-title  style="background-color:red !important;font-size:12px;color:#fff !important;">Menu</ion-title>
+    
   </ion-header>
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" style="font-size:12px;">
         {{p.title}}
       </button>
     </ion-list>

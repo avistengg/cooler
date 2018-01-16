@@ -1,54 +1,70 @@
-<!--
-  Generated template for the ProductsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-		<ion-header>
-			<ion-toolbar>
-				<button ion-button menuToggle>
-					<ion-icon name="menu"></ion-icon>
-				</button>
-				<ion-title>Order Detail</ion-title>
-			</ion-toolbar>
-		</ion-header>
-		<ion-content padding role="form-style2">
-			<ion-grid no-padding>
-				<ion-row>
-					<ion-col col-12>
-						<h5 class="red top-title">User Name</h5>
-					</ion-col>
-				</ion-row>
-			</ion-grid>
-			<ion-grid no-padding padding-vertical>
-				<ion-row>
-					<ion-col col-6>
-						<img src="assets/imgs/card-saopaolo.png" alt="your image">
-					</ion-col>
-					<ion-col col-6 padding class="padding-custom">
-						Each mode can have a different
-					</ion-col>
-				</ion-row>
-			</ion-grid>
-			<ion-list class="list list-ios" role="login-page">
-				<ion-item>
-					<ion-label stacked>Address</ion-label>
-					<ion-input></ion-input>
+<ion-header>
+		<ion-navbar>
+			<ion-title>Order Detail</ion-title>
+		</ion-navbar>
+</ion-header>
+<ion-content padding role="form-style2">
+	<ion-grid no-padding>
+		<ion-row>
+			<ion-col col-12>
+				<h5 class="red top-title">{{ name }}</h5>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<ion-grid no-padding padding-vertical>
+		<ion-row>
+			<ion-col col-6>
+					<img src="{{ productdetails.product_images[0].product_image }}">
+			</ion-col>
+			<ion-col col-6 padding class="padding-custom">
+					<h2 class="titilecolor">{{ productdetails.product_name }}</h2>
+					<p class="descn">{{ productdetails.product_desc }}</p>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<form [formGroup]="formgroup" #f="ngForm" (ngSubmit)="onfillup(f)"> 
+	<ion-list class="list list-ios" role="login-page">
+			<ion-item>
+					<ion-label stacked>Email</ion-label>
+					<ion-input type="text"  placeholder="" formControlName="emailx" value="{{ email }}"></ion-input>
 				</ion-item>
-				<ion-item>
-					<ion-label stacked>City</ion-label>
-					<ion-input></ion-input>
-				</ion-item>
-				<ion-item>
-					<ion-label stacked>State</ion-label>
-					<ion-input></ion-input>
-				</ion-item>
-				<ion-item>
-					<ion-label stacked>Pincode</ion-label>
-					<ion-input></ion-input>
-				</ion-item>
-				
-				<button margin-top ion-button block full color="dark">Register</button>
-				
-			</ion-list>
-		</ion-content>
+				<ion-item *ngIf="emailx.hasError('required') && emailx.touched">
+						<p>* Email is required</p>
+					</ion-item>
+					<ion-item *ngIf="emailx.hasError('email') && emailx.touched"> 
+						<p>* Please enter valid email</p>
+					</ion-item>
+		<ion-item>
+			<ion-label stacked>Address</ion-label>
+			<ion-input type="text"  placeholder="" formControlName="address"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="address.hasError('required') && address.touched">
+				<p>* Address is required</p>
+			</ion-item>
+		<ion-item>
+			<ion-label stacked>City</ion-label>
+			<ion-input type="text"  placeholder="" formControlName="city"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="city.hasError('required') && city.touched">
+				<p>* City is required</p>
+			</ion-item>
+		<ion-item>
+			<ion-label stacked>State</ion-label>
+			<ion-input type="text"  placeholder="" formControlName="state"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="state.hasError('required') && state.touched">
+				<p>* State is required</p>
+			</ion-item>
+		<ion-item>
+			<ion-label stacked>Pincode</ion-label>
+			<ion-input type="text"  placeholder="" formControlName="pincode"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="pincode.hasError('required') && pincode.touched">
+				<p>* Pincode is required</p>
+			</ion-item>
+		
+		<button margin-top ion-button block full color="dark"  type="submit" [disabled]="!f.valid">Register</button>
+	
+	</ion-list>
+</form>
+</ion-content>

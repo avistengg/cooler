@@ -1,13 +1,11 @@
-
-	
-		<ion-header>
+	<ion-header>
 			<ion-toolbar>
 				<button ion-button menuToggle>
 					<ion-icon name="menu"></ion-icon>
 				</button>
 				<ion-title>Home</ion-title>
 			</ion-toolbar>
-		</ion-header>
+	</ion-header>
 		<ion-content class="card-background-page custom-home-page">
 			<div>
 				<ion-segment [(ngModel)]="pet">
@@ -20,216 +18,32 @@
 				</ion-segment>
 			</div>
 			<div [ngSwitch]="pet">
-				<ion-grid *ngSwitchCase="'kittens'">
+				<ion-grid *ngSwitchCase="'kittens'"> 
 					<ion-row>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
+						<ion-col col-6 *ngFor="let item of coolers">
+							<ion-card no-margin class="item-text-wrap" [navPush]="productdetails" [navParams]=item>
+								<img src="{{ item.product_images[0].product_image }}">
 								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
+									<h2>{{ item.product_name }}</h2>
 								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
+								<div cart-icon ><ion-icon name="ios-cart-outline"></ion-icon></div>
 							</ion-card>
 						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-								<div cart-icon><ion-icon name="ios-cart-outline"></ion-icon></div>
-							</ion-card>
-						</ion-col>
-					</ion-row>
+						 
+					</ion-row>  
 				</ion-grid>
 
 				<ion-grid *ngSwitchCase="'puppies'">
 					<ion-row>
-						<ion-col col-6>
+						<ion-col col-6 *ngFor="let item of coolers1">
 							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
+									<img src="{{ item.product_images[0].product_image }}">
+									<ion-item item-text-wrap>
+										<h2>{{ item.product_name }}</h2>
 								</ion-item>
 							</ion-card>
 						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
-						<ion-col col-6>
-							<ion-card no-margin class="item-text-wrap">
-								<img src="assets/imgs/card-saopaolo.png">
-								<ion-item item-text-wrap>
-									<h2>Museum of Football</h2>
-								</ion-item>
-							</ion-card>
-						</ion-col>
+						 
 					</ion-row>
 				</ion-grid>			
 			</div>

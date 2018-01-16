@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>CFM Calculator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formgroup" #f="ngForm" (ngSubmit)="onCalculate(f)">
+<ion-list class="list list-ios" role="login-page">
+   
+  <ion-item>
+     
+    <ion-input type="number"  placeholder="Length Of Room" formControlName="lengthofroom"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="lengthofroom.hasError('required') && lengthofroom.touched">
+    <p>* Length Of Room is required</p>
+  </ion-item>
+  <ion-item> 
+    <ion-input type="number"  placeholder="Width of Room" formControlName="widthofroom"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="widthofroom.hasError('required') && widthofroom.touched">
+    <p>* Width of Room is required</p>
+  </ion-item>
+   
+  <ion-item> 
+    <ion-input type="number"  placeholder="Height of Room" formControlName="heightofroom"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="heightofroom.hasError('required') && heightofroom.touched">
+    <p>*  Height of Room is required</p>
+  </ion-item>
+  <ion-item> 
+    <ion-input type="number"  placeholder="Air Change Rate" formControlName="airchangerate"></ion-input>
+  </ion-item> 
+  <ion-item *ngIf="airchangerate.hasError('required') && airchangerate.touched">
+    <p>* Air Change Rate is required</p>
+  </ion-item>
+   
+  <button margin-top ion-button block full color="dark" type="submit" [disabled]="!f.valid">CALCULATE</button>
+  <ion-item> 
+    <ion-input type="text" ng-disabled="ng-disabled" placeholder="Air Change Rate" value="{{ airchangeratex }}"></ion-input>
+  </ion-item> 
+
+</ion-list>
+</form>
+</ion-content>

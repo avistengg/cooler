@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { OnInit } from '@angular/core';
+import { ProductsPage } from '../products/products';
 
 /**
  * Generated class for the ProductdetailsPage page.
@@ -13,13 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-productdetails',
   templateUrl: 'productdetails.html',
 })
-export class ProductdetailsPage {
-
+export class ProductdetailsPage implements OnInit {
+ 
+  productdetails: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductdetailsPage');
+  ngOnInit(): void {
+    this.productdetails = this.navParams.data;
   }
+  productsPage=ProductsPage;
 
 }

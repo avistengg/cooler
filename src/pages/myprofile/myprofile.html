@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formgroup" #f="ngForm" (ngSubmit)="onUpdateprofile(f)">
+<ion-list class="list list-ios" role="login-page">
+   
+  <ion-item>
+     
+    <ion-input type="text"  placeholder="Name" formControlName="name" value="{{namex}}"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="name.hasError('required') && name.touched">
+    <p>* Name is required</p>
+  </ion-item>
+  <ion-item> 
+    <ion-input type="text"  placeholder="Address" formControlName="address" ></ion-input>
+  </ion-item>
+  <ion-item *ngIf="address.hasError('required') && address.touched">
+    <p>* Address is required</p>
+  </ion-item>
+   
+  <ion-item> 
+    <ion-input type="text"  placeholder="Email Id" formControlName="email"  value="{{emailx}}"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="email.hasError('required') && email.touched">
+    <p>*  Email is required</p>
+  </ion-item>
+  <ion-item> 
+    <ion-input type="number"  placeholder="Mobile Number" formControlName="mobilenumber"></ion-input>
+  </ion-item> 
+  <ion-item *ngIf="mobilenumber.hasError('required') && mobilenumber.touched">
+    <p>* Mobile Number is required</p>
+  </ion-item> 
+  <button margin-top ion-button block full color="dark" type="submit" [disabled]="!f.valid">Submit</button>
+   
+
+</ion-list>
+</form>
+</ion-content>

@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, AlertController, LoadingController } from 'ionic-angular';
-import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -45,8 +40,39 @@ export class RegisterPage {
         this.password = this.formgroup.controls['password']; 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+   loginpage=LoginPage;
+  onSignup(form:NgForm){
+    const loading = this.loadingCtrl.create({
+      content:"Register in process...."
+    });
+    var apiurl="http://clarioncoolers.com/api/users/user_register?name="+form.value.name+"&address="+form.value.address+"&mobile_number="+form.value.mobile_number+"&email="+form.value.email+"&password="+form.value.password+"&device_type=Android&device_token=Zzxtyusd88912340toiuttt4346777711jj22k54l38dG&login_with=app";
+    var headers = new HttpHeaders();
+    // .set('Content-Type','application/x-www-form-urlencoded')
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    let user="";      
+    this.http.post(apiurl,user,{headers:headers}).subscribe(data=>{ 
+      if(data){
+        console.log(data);
+        if(data['status']==1){
+         loading.dismiss();
+         const alert = this.alertCtrl.create({
+          title:'Registration SuccessFul',
+          message:data['message'],
+          buttons:['Ok']
+        }); 
+       alert.present();
+       this.navCtrl.push(LoginPage);
+        }else{
+         loading.dismiss(); 
+         const alert = this.alertCtrl.create({
+           title:'Registration Failed',
+           message:'Email already exists.',
+           buttons:['Ok']
+         }); 
+        alert.present();
+        }
+     }
+    });
   }
 
 }

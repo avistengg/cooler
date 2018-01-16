@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dealership Query</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formgroup" #f="ngForm" (ngSubmit)="onDealer(f)">
+<ion-list class="list list-ios" role="login-page">
+   
+  <ion-item>
+     
+    <ion-input type="text"  placeholder="Name" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="name.hasError('required') && name.touched">
+    <p>* Name is required</p>
+  </ion-item>
+  <ion-item> 
+    <ion-input type="text"  placeholder="Company Name or Details" formControlName="company" ></ion-input>
+  </ion-item>
+  <ion-item *ngIf="company.hasError('required') && company.touched">
+    <p>* Company Name or Details is required</p>
+  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-select  formControlName="intersetin" placeholder="Interested In">
+        <ion-option value="nes">Dealership</ion-option>
+        <ion-option value="n64">Distributor</ion-option> 
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-item> 
+    <ion-input type="text"  placeholder="Address" formControlName="address"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="address.hasError('required') && address.touched">
+    <p>*  Address is required</p>
+  </ion-item>
+  <ion-item> 
+    <ion-input type="text"  placeholder="City" formControlName="city"></ion-input>
+  </ion-item> 
+  <ion-item *ngIf="city.hasError('required') && city.touched">
+    <p>* City is required</p>
+  </ion-item> 
+  <ion-item> 
+    <ion-input type="text"  placeholder="Pincode" formControlName="pincode"></ion-input>
+  </ion-item> 
+  <ion-item *ngIf="pincode.hasError('required') && pincode.touched">
+    <p>* Pincode is required</p>
+  </ion-item> 
+  <button margin-top ion-button block full color="dark" type="submit" [disabled]="!f.valid">Submit</button>
+   
+
+</ion-list>
+</form>
+</ion-content>
